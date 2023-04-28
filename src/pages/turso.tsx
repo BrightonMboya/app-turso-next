@@ -25,37 +25,38 @@ export default function MyPage() {
   });
 
   return (
-    <div>
+    <section>
       <p className="text-2xl font-medium ">Some Fancy Destinations</p>
       {!result && <p>Loading...</p>}
-      {result?.map((item) => (
-        <div
-          className="w-[300px] relative overflow-hidden"
-          key={item.image_url}
-        >
-          <Image
-            src={item.image_url}
-            alt="Picture of the author"
-            width={350}
-            height={200}
-            priority={false}
-            onLoadingComplete={() => setLoading(false)}
-            draggable={false}
-            className={cn(
-              "object-cover object-top duration-700 ease-in-out",
+      <div className="flex flex-col items-center justify-center">
+        {result?.map((item) => (
+          <div
+            className="w-[300px] relative overflow-hidden"
+            key={item.image_url}
+          >
+            <Image
+              src={item.image_url}
+              alt="Picture of the author"
+              width={350}
+              height={200}
+              priority={false}
+              onLoadingComplete={() => setLoading(false)}
+              draggable={false}
+              className={cn(
+                "object-cover object-top duration-700 ease-in-out",
 
-              isLoading
-                ? "scale-110 blur-2xl grayscale bg-blue-300 "
-                : "scale-100 blur-0 grayscale-0"
-            )}
-          />
+                isLoading
+                  ? "scale-110 blur-2xl grayscale bg-blue-300 "
+                  : "scale-100 blur-0 grayscale-0"
+              )}
+            />
 
-          <h3 className="text-lg ">
-            {item.name}, {item.location}
-          </h3>
-          <p>{item.location}</p>
-        </div>
-      ))}
-    </div>
+            <h3 className="text-lg ">
+              {item.name}, {item.location}
+            </h3>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
