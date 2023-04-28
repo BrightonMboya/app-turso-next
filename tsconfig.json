@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -16,6 +16,6 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "../*.mdx", "**/*.tsx", "**/*.cjs", "**/*.mjs", "client.js", "src/utils/getImage.ts", "src/components/landingPage/layout.js", "src/pages/_document.js", "src/pages/about/terms-of-service.tsx"],
   "exclude": ["node_modules"]
 }

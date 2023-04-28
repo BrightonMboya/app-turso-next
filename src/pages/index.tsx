@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
 
-type QueryResult = {
+export type QueryResult = {
   id: number | null;
   country: string;
   name: string;
@@ -18,7 +18,7 @@ export default function MyPage() {
   const [result, setResult] = useState<QueryResult[] | null>(null);
   const [isLoading, setLoading] = useState(true);
 
-  const data = axios.get("/api/turso").then((res) => {
+  axios.get("/api/turso").then((res) => {
     setResult(res.data);
     console.log(result);
   });

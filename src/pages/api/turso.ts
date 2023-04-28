@@ -1,6 +1,7 @@
 import useTurso from '../../db/turso';
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ResultSet } from '@libsql/client/web';
+import type { QueryResult } from '..';
 
 const responseDataAdapter = (data: ResultSet): any[] => {
     if (!data?.columns || !data?.rows) {
@@ -13,7 +14,7 @@ const responseDataAdapter = (data: ResultSet): any[] => {
     for (const row of rows) {
         const rowData: { [k: string]: any } = {};
         for (let i = 0; i < columns.length; i++) {
-            //@ts-ignore
+
             rowData[columns[i]] = row[i];
         }
 
@@ -22,6 +23,8 @@ const responseDataAdapter = (data: ResultSet): any[] => {
 
     return formattedData;
 }
+
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -32,7 +35,7 @@ export default async function handler(
         const client = useTurso();
         const response = await client.execute("SELECT * FROM popular_destinations;");
         const allPosts = responseDataAdapter(response);
-        const posts = allPosts.map((post) => {
+        const posts: QueryResult[] = allPosts.map((post) => {
             return {
                 id: post.id,
                 country: post.country,

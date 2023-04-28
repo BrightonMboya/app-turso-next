@@ -2,14 +2,18 @@
   "overrides": [
     {
       "extends": [
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "eslint:recommended", "plugin:@typescript-eslint/recommended"
       ],
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
         "project": "tsconfig.json"
       },
       "rules": {
-              "no-unused-expressions": "off"
+              "no-unused-expressions": "off",
+              "@typescript-eslint/no-unused-expressions": "error",
+               "@typescript-eslint/no-explicit-any": "error"
+              
           }
     }
   ],
