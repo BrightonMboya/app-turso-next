@@ -1,4 +1,4 @@
-import useTurso from '../../db/turso';
+import Turso from '../../db/turso';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ResultSet } from '@libsql/client/web';
 import type { QueryResult } from '..';
@@ -25,14 +25,14 @@ const responseDataAdapter = (data: ResultSet): any[] => {
 }
 
 
-export default async function handler(
+export default async function Handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
 
 
     try {
-        const client = useTurso();
+        const client = Turso();
         const response = await client.execute("SELECT * FROM popular_destinations;");
         const allPosts = responseDataAdapter(response);
         const posts: QueryResult[] = allPosts.map((post) => {
