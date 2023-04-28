@@ -26,11 +26,11 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    // return res.status(200).json({ message: 'Hello world' });
-    // if (req.method === 'POST') {
-    //     res.status(405).json({ message: 'Method not allowed' });
-    //     return;
-    // }
+    if (req.method !== "GET") {
+        res.status(405).json({ message: "Method not allowed" });
+        return;
+    }
+
 
     try {
         const client = useTurso();
@@ -47,10 +47,7 @@ export default async function handler(
         })
 
         res.status(200).json(posts);
-        // return {
-        //     statusCode: 200,
-        //     body: data
-        // }
+
 
     } catch (error: any) {
         console.log(error);
