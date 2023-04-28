@@ -33,12 +33,14 @@ turso db shell [DATABASE-NAME]
 
 ### Filling the Env variables
 You need to add two variables on your env file, the first one is the database url, you can get it by running the following command on your terminal:
+
+
 ```sh
 turso db url [DATABASE-NAME]
 ```
 The second one is the secret key, you can generate it by running the following command on your terminal:
 ```sh
-turso db tokens create tonero --expiration none
+turso db tokens create [DATABASE-NAME] --expiration none
 ```
 
 ### Create tables and indexes
