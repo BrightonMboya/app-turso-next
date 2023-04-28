@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
-import BlurImage from "../components/BlurImage";
 
 type QueryResult = {
   id: number | null;
@@ -43,7 +42,7 @@ export default function MyPage() {
               onLoadingComplete={() => setLoading(false)}
               draggable={false}
               className={cn(
-                "object-cover object-top duration-700 ease-in-out",
+                "object-cover object-top duration-700 ease-in-out border-[1px]",
 
                 isLoading
                   ? "scale-110 blur-2xl grayscale bg-blue-300 "
