@@ -1,6 +1,6 @@
 import useTurso from '../../db/turso';
 import { NextApiRequest, NextApiResponse } from 'next';
-import type { ResultSet } from '@libsql/client';
+import type { ResultSet } from '@libsql/client/web';
 
 const responseDataAdapter = (data: ResultSet): any[] => {
     if (!data?.columns || !data?.rows) {
@@ -8,7 +8,7 @@ const responseDataAdapter = (data: ResultSet): any[] => {
     }
 
     const { columns, rows } = data;
-    const formattedData: any[] = [];
+    const formattedData = [];
 
     for (const row of rows) {
         const rowData: { [k: string]: any } = {};
@@ -26,11 +26,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    // return res.status(200).json({ message: 'Hello world' });
-    // if (req.method === 'POST') {
-    //     res.status(405).json({ message: 'Method not allowed' });
-    //     return;
-    // }
+
 
     try {
         const client = useTurso();
@@ -47,10 +43,7 @@ export default async function handler(
         })
 
         res.status(200).json(posts);
-        // return {
-        //     statusCode: 200,
-        //     body: data
-        // }
+
 
     } catch (error: any) {
         console.log(error);
