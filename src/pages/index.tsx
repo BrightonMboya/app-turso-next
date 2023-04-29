@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import useFetch from "../hooks/useFetch";
+import type { fetchResponse } from "../hooks/useFetch";
 
 export type QueryResult = {
   id: number | null;
@@ -15,21 +16,8 @@ function cn(...classes: string[]) {
 }
 
 export default function MyPage() {
-  const [result, setResult] = useState<QueryResult[] | null>(null);
   const [isLoading, setLoading] = useState(true);
-
-  // axios
-  //   .get("/api/turso")
-  //   .then((res): void => {
-  //     setResult(res.data as QueryResult[]);
-  //     console.log(result);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  const { data, loading, error } = useFetch("/api/turso");
-  console.log(data);
-  console.log(error);
+  const { data, loading, error }: fetchResponse = useFetch("/api/turso");
 
   return (
     <main className="font-montserrat flex items-center justify-center">
@@ -40,36 +28,35 @@ export default function MyPage() {
         </p>
 
         {loading && <p>Loading...</p>}
+        {error && <p>Error countered while fetching: {error}</p>}
         <div className="flex flex-col items-center justify-center gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
-          {data?.map(
-            (item): JSX.Element => (
-              <div
-                className="w-[300px] relative flex flex-col items-center justify-center p-4 m-4 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                key={item.image_url}
-              >
-                <Image
-                  src={item.image_url}
-                  alt="Picture of the author"
-                  width={350}
-                  height={200}
-                  priority={false}
-                  onLoadingComplete={() => setLoading(false)}
-                  draggable={false}
-                  className={cn(
-                    "object-cover object-top duration-700 ease-in-out border-[1px]",
+          {data?.map((item: QueryResult) => (
+            <div
+              className="w-[300px] relative flex flex-col items-center justify-center p-4 m-4 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+              key={item.image_url}
+            >
+              <Image
+                src={item.image_url}
+                alt="Picture of the author"
+                width={350}
+                height={200}
+                priority={false}
+                onLoadingComplete={() => setLoading(false)}
+                draggable={false}
+                className={cn(
+                  "object-cover object-top duration-700 ease-in-out border-[1px]",
 
-                    isLoading
-                      ? "scale-110 blur-2xl grayscale bg-blue-300 "
-                      : "scale-100 blur-0 grayscale-0"
-                  )}
-                />
+                  isLoading
+                    ? "scale-110 blur-2xl grayscale bg-blue-300 "
+                    : "scale-100 blur-0 grayscale-0"
+                )}
+              />
 
-                <h3 className="text-lg ">
-                  {item.name}, {item.location}
-                </h3>
-              </div>
-            )
-          )}
+              <h3 className="text-lg ">
+                {item.name}, {item.location}
+              </h3>
+            </div>
+          ))}
         </div>
       </section>
     </main>

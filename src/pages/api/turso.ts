@@ -1,42 +1,14 @@
 import Turso from '../../db/turso';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { ResultSet } from '@libsql/client/web';
-import type { QueryResult } from '..';
-
-
-const responseDataAdapter = (data: ResultSet): QueryResult[] => {
-    if (!data?.columns || !data?.rows) {
-        throw new Error("Malformed response from turso");
-    }
-
-    const { columns, rows } = data;
-    const formattedData = [];
-
-    for (const row of rows) {
-        const rowData = {};
-        for (let i = 0; i < columns.length; i++) {
-
-            rowData[columns[i]] = row[i];
-        }
-
-        formattedData.push(rowData);
-    }
-
-    return formattedData as QueryResult[];
-}
-
 
 export default async function Handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-
-
     try {
         const client = Turso();
         const response = await client.execute("SELECT * FROM popular_destinations;");
-        const allPosts = responseDataAdapter(response);
-        const posts: QueryResult[] = allPosts.map((post) => {
+        const posts = response.rows.map((post) => {
             return {
                 id: post.id,
                 country: post.country,
@@ -55,7 +27,6 @@ export default async function Handler(
             res.status(500).json({ message: error.message });
             return;
         }
-
     }
 }
 
