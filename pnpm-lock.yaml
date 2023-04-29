@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@libsql/client': ^0.1.3
+  '@libsql/client': ^0.1.4
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -21,8 +21,8 @@ specifiers:
   zod: ^3.18.0
 
 dependencies:
-  '@libsql/client': 0.1.3
-  axios: 1.3.6
+  '@libsql/client': 0.1.4
+  axios: 1.4.0
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -49,8 +49,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@babel/runtime/7.21.0:
-    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
+  /@babel/runtime/7.21.5:
+    resolution: {integrity: sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
@@ -141,10 +141,10 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@libsql/client/0.1.3:
-    resolution: {integrity: sha512-OBXL2C+bq1DzSX23TMxmWwXQBXdUd6S7TeeB2veldGGjziLbYMUSY0gtjAW4hdRdOuGbQdClnz2S3HqImvjhRA==}
+  /@libsql/client/0.1.4:
+    resolution: {integrity: sha512-ZkHEIIhAa8dIM3Zbzfs0N2btsh9P27nFd+jHz5H2rgUWXbfZCYQDMDsWUH1x81oqvX3rm2aZKeIChRrnOSrWNw==}
     dependencies:
-      '@libsql/hrana-client': 0.3.8
+      '@libsql/hrana-client': 0.3.9
       '@libsql/isomorphic-fetch': 0.1.1
       better-sqlite3: 8.3.0
       js-base64: 3.7.5
@@ -154,8 +154,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@libsql/hrana-client/0.3.8:
-    resolution: {integrity: sha512-KR8Gjj8bVo5K+zgCIaLYTpfQoAFwR22xhl8C2DDlO2vH/Gcy50Id6z63Z3WyM4xgAJGWuciZ4fj6M7OEmLP7gg==}
+  /@libsql/hrana-client/0.3.9:
+    resolution: {integrity: sha512-vVQU+4629HI3MAaX3hbIz5kYOWVZ5syKjpkQ6oGR+WR0GwsiT4KheifO5e+wM4QKZ5FCjTVzOhA45HFvU5e4kA==}
     dependencies:
       '@libsql/isomorphic-ws': 0.1.3
       js-base64: 3.7.5
@@ -669,8 +669,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios/1.3.6:
-    resolution: {integrity: sha512-PEcdkk7JcdPiMDkvM4K6ZBRYq9keuVJsToxm2zQIM70Qqo2WHTdJZMXcG9X+RmRp2VPNUQC8W1RAGbgt6b1yMg==}
+  /axios/1.4.0:
+    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -740,7 +740,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001481
-      electron-to-chromium: 1.4.376
+      electron-to-chromium: 1.4.377
       node-releases: 2.0.10
       update-browserslist-db: 1.0.11_browserslist@4.21.5
     dev: true
@@ -958,8 +958,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium/1.4.376:
-    resolution: {integrity: sha512-TFeOKd98TpJzRHkr4Aorn16QkMnuCQuGAE6IZ0wYF+qkbSfMPqjplvRppR02tMUpVxZz8nyBNvVm9lIZsqrbPQ==}
+  /electron-to-chromium/1.4.377:
+    resolution: {integrity: sha512-H3BYG6DW5Z+l0xcfXaicJGxrpA4kMlCxnN71+iNX+dBLkRMOdVJqFJiAmbNZZKA1zISpRg17JR03qGifXNsJtw==}
     dev: true
 
   /emoji-regex/9.2.2:
@@ -1182,7 +1182,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.21.5
       aria-query: 5.1.3
       array-includes: 3.1.6
       array.prototype.flatmap: 1.3.1
