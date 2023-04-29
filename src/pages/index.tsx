@@ -18,10 +18,15 @@ export default function MyPage() {
   const [result, setResult] = useState<QueryResult[] | null>(null);
   const [isLoading, setLoading] = useState(true);
 
-  axios.get("/api/turso").then((res) => {
-    setResult(res.data);
-    console.log(result);
-  });
+  axios
+    .get("/api/turso")
+    .then((res): void => {
+      setResult(res.data as QueryResult[]);
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   return (
     <main className="font-montserrat flex items-center justify-center">

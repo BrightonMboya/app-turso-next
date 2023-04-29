@@ -3,7 +3,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ResultSet } from '@libsql/client/web';
 import type { QueryResult } from '..';
 
-const responseDataAdapter = (data: ResultSet): any[] => {
+
+const responseDataAdapter = (data: ResultSet): QueryResult[] => {
     if (!data?.columns || !data?.rows) {
         throw new Error("Malformed response from turso");
     }
@@ -12,16 +13,16 @@ const responseDataAdapter = (data: ResultSet): any[] => {
     const formattedData = [];
 
     for (const row of rows) {
-        const rowData: { [k: string]: any } = {};
+        const rowData = {};
         for (let i = 0; i < columns.length; i++) {
 
             rowData[columns[i]] = row[i];
         }
 
-        formattedData.push(rowData as unknown as any);
+        formattedData.push(rowData);
     }
 
-    return formattedData;
+    return formattedData as QueryResult[];
 }
 
 
@@ -48,9 +49,13 @@ export default async function Handler(
         res.status(200).json(posts);
 
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.log(error);
-        res.status(500).json({ message: error.message });
-    }
+        if (error instanceof Error) {
+            res.status(500).json({ message: error.message });
+            return;
+        }
 
+    }
 }
+

@@ -1,51 +1,29 @@
 ## Purpose
 
-This repo shows how to integrate Turso in a next App. I includes how to add and querying the tables.
+This repo shows how to integrate Turso in a next App. It includes how to add and querying the tables.
 
-## Getting started
-```
-pnpm run dev
+### Getting Started
+
+Afer Cloning the repo, you need to install the dependencies by running the following command on your terminal:
+
+```sh
+npm install
 ```
 
 ## Setting up the database
 
-Install the Turso CLI.
+Install the Turso CLI by following the [Documentation](https://docs.turso.tech/reference/turso-cli#installation)
 
-```sh
-# On macOS or Linux with Homebrew
-brew install chiselstrike/tap/turso
 
-# Manual scripted installation
-curl -sSfL <https://get.tur.so/install.sh> | bash
-```
-
-Create a new turso database.
+### Create a new turso database.
 
 ```sh
 turso db create [DATABASE-NAME]
 ```
 
-Access the database through the Turso CLI shell.
-
-```sh
-turso db shell [DATABASE-NAME]
-```
-
-### Filling the Env variables
-You need to add two variables on your env file, the first one is the database url, you can get it by running the following command on your terminal:
-
-
-```sh
-turso db url [DATABASE-NAME]
-```
-The second one is the secret key, you can generate it by running the following command on your terminal:
-```sh
-turso db tokens create [DATABASE-NAME] --expiration none
-```
-
 ### Create tables and indexes
 
-Here are the SQL statements set up Turso for the blog.
+Here are the SQL statements to seed some data.
 
 ```sql
 CREATE TABLE popular_destinations (
@@ -75,4 +53,34 @@ VALUES
 INSERT INTO popular_destinations (country, name, location, image_url)
 VALUES
 ('London', 'UK', 'United Kingdom', 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZG9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
-    ```
+```
+
+
+### Filling the Env variables
+You need to add two variables on your env file, the first one is the database url, you can get it by running the following command on your terminal:
+
+
+```sh
+turso db url [DATABASE-NAME]
+```
+The second one is the secret key, you can generate it by running the following command on your terminal:
+```sh
+turso db tokens create [DATABASE-NAME] 
+```
+
+On the root folder add the .env file and add the following variables:
+```sh
+url=YOUR_DATABASE_URL
+authToken=YOUR_SECRET_KEY
+```
+
+### Running the dev server
+
+
+To start the dev server run,
+```
+npm run dev
+```
+
+
+
