@@ -21,11 +21,18 @@ Install the Turso CLI by following the [Documentation](https://docs.turso.tech/r
 turso db create [DATABASE-NAME]
 ```
 
+### Access the database through the Turso CLI Shell
+    
+```sh
+turso db shell [DATABASE-NAME]
+```
+
 ### Create tables and indexes
 
-Here are the SQL statements to seed some data.
+Here are the SQL statements to set up Turso for the project
 
 ```sql
+-- create the popular destinations table
 CREATE TABLE popular_destinations (
     id SERIAL PRIMARY KEY,
     country VARCHAR(255) NOT NULL,
@@ -34,12 +41,10 @@ CREATE TABLE popular_destinations (
     image_url VARCHAR(255) NOT NULL
 );
 
-```
-Run these statements to seed some initial blog data into the database.
-```sql
+-- Seeding up the database
 INSERT INTO popular_destinations (country, name, location, image_url)
 VALUES
-    ('United States', 'New York City', 'New York', 'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV3JTIweW9ya3xlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60'),
+    ('United States', 'New York City', 'New York', 'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV3JTIweW9ya3xlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60');
 INSERT INTO popular_destinations (country, name, location, image_url)
 VALUES
     ('France', 'Paris', 'Ile-de-France', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFyaXN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
@@ -53,7 +58,10 @@ VALUES
 INSERT INTO popular_destinations (country, name, location, image_url)
 VALUES
 ('London', 'UK', 'United Kingdom', 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZG9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+
+quit;
 ```
+
 
 
 ### Filling the Env variables
