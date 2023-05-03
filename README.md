@@ -83,7 +83,7 @@ On the root folder add the .env file and add the following variables:
 url=YOUR_DATABASE_URL
 authToken=YOUR_AUTH_TOKEN
 ```
-```
+
 
 ### Running the dev server
 
@@ -96,6 +96,16 @@ npm run dev
 When the page is loaded, the data is fetched from the database and displayed on the page.
 The data is fetched using a useFetch hook that is defined in the hooks folder.
 
+
+## Credits
 The Images used are from [Unsplash](https://unsplash.com/)
+Photo by [Mickeal Diskenza ](https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bmV3JTIwWW9ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60) on [Unsplash](https://unsplash.com/)
+
+Photo by [Chris Karidis](https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFyaXN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60) on [Unsplash](https://unsplash.com/)
+
+Photo by [David Edelstein](https://images.unsplash.com/photo-1578469645742-46cae010e5d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8a3lvdG98ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60) on [Unsplash](https://unsplash.com/)
+
+Photo by [Srikant Sahoo](https://images.unsplash.com/photo-1526958977630-bc61b30a2009?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF1c3RyYWxpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60) on [Unsplash](https://unsplash.com/)
 
 
+Photo by [Benjamin Davies](https://images.unsplash.com/photo-1526958977630-bc61b30a2009?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF1c3RyYWxpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60) on [Unsplash](https://unsplash.com/)
