@@ -59,9 +59,11 @@ INSERT INTO popular_destinations (country, name, location, image_url)
 VALUES
 ('London', 'UK', 'United Kingdom', 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZG9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
 
-quit;
-```
 
+-- Quitting the shell
+.quit
+
+```
 
 
 ### Filling the Env variables
@@ -69,9 +71,9 @@ You need to add two variables on your env file, the first one is the database ur
 
 
 ```sh
-turso db url [DATABASE-NAME]
+turso db show [DATABASE-NAME] --url
 ```
-The second one is the secret key, you can generate it by running the following command on your terminal:
+The second one is the authentication token, you can generate it by running the following command on your terminal:
 ```sh
 turso db tokens create [DATABASE-NAME] 
 ```
@@ -79,16 +81,21 @@ turso db tokens create [DATABASE-NAME]
 On the root folder add the .env file and add the following variables:
 ```sh
 url=YOUR_DATABASE_URL
-authToken=YOUR_SECRET_KEY
+authToken=YOUR_AUTH_TOKEN
+```
 ```
 
 ### Running the dev server
 
 
-To start the dev server run,
+Start the development server on http://localhost:3000
 ```
 npm run dev
 ```
 
+When the page is loaded, the data is fetched from the database and displayed on the page.
+The data is fetched using a useFetch hook that is defined in the hooks folder.
+
+The Images used are from [Unsplash](https://unsplash.com/)
 
 
