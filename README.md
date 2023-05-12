@@ -14,6 +14,12 @@ npm install
 
 Install the Turso CLI by following the [Documentation](https://docs.turso.tech/reference/turso-cli#installation)
 
+After installing the Turso CLI we need to login. Turso will open up a new browser window where you will require to grant the Github Turso app some permissions to your account
+
+```sh
+turso auth signup
+```
+
 
 ### Create a new turso database.
 
